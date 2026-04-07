@@ -1,0 +1,25 @@
+{
+    "id": "c1166aa0-87f8-4d4d-aff5-80638a257846",
+    "started_at": "2026-04-06T23:38:11.568332",
+    "finished_at": "2026-04-06T23:50:15.561113",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "claude-code__claude-sonnet-4-6__terminal-bench-terminal-bench-2": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "crack-7z-hash__xP4jhfo"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}
