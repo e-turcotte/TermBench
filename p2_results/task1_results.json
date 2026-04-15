@@ -1,0 +1,29 @@
+{
+    "id": "4b3dd8f3-23f9-48f4-8f9a-af1766bdf917",
+    "started_at": "2026-04-15T15:14:28.767675",
+    "finished_at": "2026-04-15T15:16:14.423389",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "gemini-cli__gemma-4-31b-it__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "task1__kkbtewt"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}
