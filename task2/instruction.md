@@ -2,7 +2,7 @@
 
 You have been provided a dataset of SMS messages in `/app/data/`. Your goal is
 to train a binary text classifier that distinguishes spam messages from
-legitimate ones.
+legitimate ones. Also, I want a high F1 score.
 
 ## Dataset
 
