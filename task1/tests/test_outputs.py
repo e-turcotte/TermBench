@@ -19,8 +19,6 @@ def load_cert(path):
         return x509.load_pem_x509_certificate(f.read(), default_backend())
 
 
-# --- File existence ---
-
 def test_root_cert_exists():
     assert os.path.exists(ROOT_CRT)
 
@@ -35,9 +33,6 @@ def test_chain_file_exists():
 
 def test_fullchain_file_exists():
     assert os.path.exists(FULLCHAIN_CRT)
-
-
-# --- OpenSSL chain verification ---
 
 def test_openssl_verifies_full_chain():
     """Verify leaf cert against the full chain using openssl."""
@@ -56,9 +51,6 @@ def test_openssl_verifies_intermediate_against_root():
     )
     assert result.returncode == 0, f"Intermediate verification failed: {result.stderr}"
 
-
-# --- Root CA properties ---
-
 def test_root_is_ca():
     cert = load_cert(ROOT_CRT)
     bc = cert.extensions.get_extension_for_class(x509.BasicConstraints)
@@ -71,9 +63,6 @@ def test_root_is_self_signed():
 def test_root_key_size():
     cert = load_cert(ROOT_CRT)
     assert cert.public_key().key_size >= 4096
-
-
-# --- Intermediate CA properties ---
 
 def test_intermediate_is_ca():
     cert = load_cert(INTERMEDIATE_CRT)
@@ -93,9 +82,6 @@ def test_intermediate_pathlen():
     cert = load_cert(INTERMEDIATE_CRT)
     bc = cert.extensions.get_extension_for_class(x509.BasicConstraints)
     assert bc.value.path_length == 0
-
-
-# --- Leaf certificate properties ---
 
 def test_leaf_is_not_ca():
     cert = load_cert(LEAF_CRT)
@@ -130,9 +116,6 @@ def test_leaf_not_expired():
 def test_leaf_key_size():
     cert = load_cert(LEAF_CRT)
     assert cert.public_key().key_size >= 2048
-
-
-# --- Chain file contents ---
 
 def test_chain_contains_intermediate():
     with open(CHAIN_CRT) as f:
