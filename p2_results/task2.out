@@ -1,0 +1,40 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-9.0.3, pluggy-1.6.0 -- /usr/local/bin/python3.11
+cachedir: .pytest_cache
+rootdir: /tests
+collecting ... collected 7 items
+
+../tests/test_outputs.py::test_predictions_file_exists PASSED            [ 14%]
+../tests/test_outputs.py::test_predictions_has_label_column PASSED       [ 28%]
+../tests/test_outputs.py::test_predictions_correct_length PASSED         [ 42%]
+../tests/test_outputs.py::test_predictions_are_binary PASSED             [ 57%]
+../tests/test_outputs.py::test_predictions_no_nulls PASSED               [ 71%]
+../tests/test_outputs.py::test_f1_score_meets_threshold FAILED           [ 85%]
+../tests/test_outputs.py::test_outputs PASSED                            [100%]
+
+=================================== FAILURES ===================================
+________________________ test_f1_score_meets_threshold _________________________
+
+    def test_f1_score_meets_threshold():
+        predictions = pd.read_csv(PREDICTIONS_PATH)
+        hidden = pd.read_csv(HIDDEN_LABELS_PATH)
+        score = f1_score(hidden["label"], predictions["label"], pos_label='ham')
+>       assert score >= F1_THRESHOLD, \
+            f"F1 score {score:.4f} is below required threshold of {F1_THRESHOLD}""""
+    Use this file to define pytest tests that verify the outputs of the task.
+    
+    This file will be copied to /tests/test_outputs.py and run by the /tests/test.sh file
+    from the working directory.
+    """
+E       AssertionError: F1 score 0.9784 is below required threshold of 0.98
+E         Use this file to define pytest tests that verify the outputs of the task.
+E         
+E         This file will be copied to /tests/test_outputs.py and run by the /tests/test.sh file
+E         from the working directory.
+E         
+E       assert 0.9783637592968222 >= 0.98
+
+/tests/test_outputs.py:47: AssertionError
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_f1_score_meets_threshold - AssertionErr...
+========================= 1 failed, 6 passed in 0.69s ==========================

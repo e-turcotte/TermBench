@@ -1,0 +1,33 @@
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-9.0.3, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /tests
+collecting ... collected 24 items
+
+../tests/test_outputs.py::test_root_cert_exists PASSED                   [  4%]
+../tests/test_outputs.py::test_intermediate_cert_exists PASSED           [  8%]
+../tests/test_outputs.py::test_leaf_cert_exists PASSED                   [ 12%]
+../tests/test_outputs.py::test_chain_file_exists PASSED                  [ 16%]
+../tests/test_outputs.py::test_fullchain_file_exists PASSED              [ 20%]
+../tests/test_outputs.py::test_openssl_verifies_full_chain PASSED        [ 25%]
+../tests/test_outputs.py::test_openssl_verifies_intermediate_against_root PASSED [ 29%]
+../tests/test_outputs.py::test_root_is_ca PASSED                         [ 33%]
+../tests/test_outputs.py::test_root_is_self_signed PASSED                [ 37%]
+../tests/test_outputs.py::test_root_key_size PASSED                      [ 41%]
+../tests/test_outputs.py::test_intermediate_is_ca PASSED                 [ 45%]
+../tests/test_outputs.py::test_intermediate_not_self_signed PASSED       [ 50%]
+../tests/test_outputs.py::test_intermediate_signed_by_root PASSED        [ 54%]
+../tests/test_outputs.py::test_intermediate_pathlen PASSED               [ 58%]
+../tests/test_outputs.py::test_leaf_is_not_ca PASSED                     [ 62%]
+../tests/test_outputs.py::test_leaf_signed_by_intermediate PASSED        [ 66%]
+../tests/test_outputs.py::test_leaf_has_correct_cn PASSED                [ 70%]
+../tests/test_outputs.py::test_leaf_has_san PASSED                       [ 75%]
+../tests/test_outputs.py::test_leaf_has_server_auth_eku PASSED           [ 79%]
+../tests/test_outputs.py::test_leaf_not_expired PASSED                   [ 83%]
+../tests/test_outputs.py::test_leaf_key_size PASSED                      [ 87%]
+../tests/test_outputs.py::test_chain_contains_intermediate PASSED        [ 91%]
+../tests/test_outputs.py::test_chain_contains_root PASSED                [ 95%]
+../tests/test_outputs.py::test_fullchain_contains_leaf PASSED            [100%]
+
+============================== 24 passed in 0.03s ==============================
